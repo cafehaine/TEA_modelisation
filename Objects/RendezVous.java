@@ -1,20 +1,19 @@
 package Objects;
 
 import java.util.ArrayList;
-import java.util.Date;
-
+import java.util.Calendar;
 
 public class RendezVous {
 	private static int nbId = 0;
 	
 	private int id;
-	private Date date;
+	private Calendar date;
 	private String titre;
 	private Double duree; // 1h30 = 1.5
 	private ArrayList<Integer> lstParticipant;
 	private ArrayList<Integer> lstConfirmer;
 	
-	public RendezVous(Date date, String titre, Double duree) {
+	public RendezVous(Calendar date, String titre, Double duree) {
 		super();
 		this.id = ++nbId;
 		this.date = date;
@@ -32,11 +31,11 @@ public class RendezVous {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 

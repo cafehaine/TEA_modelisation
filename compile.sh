@@ -39,4 +39,4 @@ echo "COMPILATION INTERFACE"
 cd Interface
 javac -cp "../BaseDeDonnees.jar:../SystemeInterface.jar:../ServeurMail.jar:../Systeme.jar:../Objects.jar:." *.java
 cd ..
-jar cvf Interface.jar Interface/*.class
+jar cvmf Interface/MANIFEST.MF Interface.jar Interface/*.class

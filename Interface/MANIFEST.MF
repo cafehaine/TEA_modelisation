@@ -1,0 +1,2 @@
+Main-Class: Interface.Interface
+Class-Path: SystemeInterface.jar ServeurMail.jar Objects.jar BaseDeDonnees.jar Systeme.jar

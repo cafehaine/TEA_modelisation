@@ -1,3 +1,4 @@
+package BaseDeDonnees;
 
 public class BaseDeDonnees {
 	public final TableUtilisateur utilisateur;

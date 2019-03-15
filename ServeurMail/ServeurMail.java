@@ -1,14 +1,16 @@
+package ServeurMail;
+
 import java.util.ArrayList;
 
-import BaseDeDonnees.BaseDeDonnees;
 import SystemeInterface.SystemeInterface;
+import BaseDeDonnees.BaseDeDonnees;
 
 public class ServeurMail {
 
-	private BaseDeDonnee bdd;
-	private SystemInterface system;
+	private BaseDeDonnees bdd;
+	private SystemeInterface system;
 	
-	public ServeurMail (SystemInterface system) {
+	public ServeurMail (SystemeInterface system) {
 		this.bdd = new BaseDeDonnees();
 		this.system = system;
 	}

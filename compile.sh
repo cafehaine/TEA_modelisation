@@ -27,7 +27,7 @@ echo "COMPILATION SERVEURMAIL"
 cd ServeurMail
 javac -cp "../SystemeInterface.jar:../BaseDeDonnees.jar:../Objects.jar:." *.java
 cd ..
-jar cvf Systeme.jar Systeme/*.class
+jar cvf ServeurMail.jar ServeurMail/*.class
 
 #echo "COMPILATION SYSTEME"
 #cd Systeme

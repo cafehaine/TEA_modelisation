@@ -1,13 +1,31 @@
+package Interface;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 
+import Objects.Agenda;
+import Objects.RendezVous;
+import BaseDeDonnees.BaseDeDonnees;
+import ServeurMail.ServeurMail;
+import Systeme.Systeme;
+
 public class Interface {
+
+	private BaseDeDonnees bdd;
+	private ServeurMail serv;
+	private Systeme system;
 
 	public void main(String[]args) {
 		
+		bdd = new BaseDeDonnees();
+		serv = new ServeurMail();
+		
+		system = new Systeme(bdd, serv);
+		serv.setSystem(system);
+
 		int numero = identification();
-		ArrayList<Integer> mesIdAgendas = bdd.listAgenda(numero);
+		ArrayList<Integer> mesIdAgendas = bdd.utilisateur.listeAgenda(numero);
 		ArrayList<Agenda> mesAgendas = idToAgenda(mesIdAgendas);
 		
 		int choix = choix();
@@ -33,7 +51,6 @@ public class Interface {
 			Scanner sc = new Scanner(System.in);
 			choix = sc.nextInt();
 		}
-		
 		return choix;
 	}
 	
@@ -42,10 +59,6 @@ public class Interface {
 		date.set(2019,03,15, 16, 20);
 		RendezVous rdv = new RendezVous(date,"rendezVous 1",1.5);
 		
-		BaseDeDonnee bdd = new BaseDeDonnee();
-		ServeurMail serv = new ServeurMail();
-		
-		System system = new System(bdd,serv);
 		system.creerRendezVous(rdv);
 	}
 	
@@ -66,7 +79,7 @@ public class Interface {
 		ArrayList<Agenda> agenda = new ArrayList<Agenda>();
 		
 		for (int i=0;i<mesAgendas.size();i++){
-			agenda.add(bdd.getAgenda(mesAgendas.get(i)));
+			agenda.add(bdd.agenda.getAgenda(mesAgendas.get(i)));
 		}
 		
 		return agenda;
@@ -83,12 +96,11 @@ public class Interface {
 		try {
 			Scanner sc = new Scanner(System.in);
 			int idAgenda = sc.nextInt();
+			System.out.println(mesAgendas.get(idAgenda));
        } catch (Exception e) {
     	   System.out.println("un numéro est demandé");
        }
-		
-		
-		System.out.println(mesAgendas.get(idAgenda));		
+				
 		
 	}
 }

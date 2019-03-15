@@ -35,4 +35,8 @@ javac -cp "../SystemeInterface.jar:../BaseDeDonnees.jar:../ServeurMail.jar:../Ob
 cd ..
 jar cvf Systeme.jar Systeme/*.class
 
-
+echo "COMPILATION INTERFACE"
+cd Interface
+javac -cp "../BaseDeDonnees.jar:../SystemeInterface.jar:../ServeurMail.jar:../Systeme.jar:../Objects.jar:." *.java
+cd ..
+jar cvf Interface.jar Interface/*.class

@@ -10,11 +10,15 @@ public class ServeurMail {
 	private BaseDeDonnees bdd;
 	private SystemeInterface system;
 	
-	public ServeurMail (SystemeInterface system) {
+	public ServeurMail() {
 		this.bdd = new BaseDeDonnees();
-		this.system = system;
+		this.system = null;
 	}
 	
+	public void setSystem(SystemeInterface sys) {
+		this.system = sys;
+	}
+
 	public void demanderConfirm(int utilisateur, int rdv) {
 		ArrayList<Integer> liste_Agenda = bdd.utilisateur.listeAgenda(utilisateur);
 	

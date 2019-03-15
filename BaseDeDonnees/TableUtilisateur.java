@@ -1,3 +1,5 @@
+import Objects.Utilisateur;
+
 import java.util.ArrayList;
 
 public class TableUtilisateur {
@@ -17,7 +19,7 @@ public class TableUtilisateur {
 	}
 	
 	public ArrayList<Integer> listeAgenda(int utilisateur) {
-		return getUser(utilisateur).getAgendas();
+		return getUser(utilisateur).getLstAgenda();
 	}
 	
 	public boolean utilisateurDisponnible(int utilisateur, int rdv) {

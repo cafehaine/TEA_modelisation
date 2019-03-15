@@ -1,3 +1,7 @@
+import Objects.RendezVous;
+
+import java.util.ArrayList;
+
 public class TableRendezVous {
 	public TableRendezVous() {
 		

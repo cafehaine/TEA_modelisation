@@ -1,17 +1,20 @@
 import java.util.ArrayList;
 
+import BaseDeDonnees.BaseDeDonnees;
+import SystemeInterface.SystemeInterface;
+
 public class ServeurMail {
 
 	private BaseDeDonnee bdd;
-	private System system;
+	private SystemInterface system;
 	
-	public ServeurMail () {
-		this.bdd = new BaseDeDonnee();
-		this.system = new System();
+	public ServeurMail (SystemInterface system) {
+		this.bdd = new BaseDeDonnees();
+		this.system = system;
 	}
 	
 	public void demanderConfirm(int utilisateur, int rdv) {
-		ArrayList<Integer> liste_Agenda = bdd.lstAgenda(int utilisateur);
+		ArrayList<Integer> liste_Agenda = bdd.utilisateur.listeAgenda(utilisateur);
 	
 		//ArrayList<Agenda> mesAgendas = idAgendaToAgenda(liste_Agenda); 
 		int idAgenda = agendaAlea(liste_Agenda.size());		

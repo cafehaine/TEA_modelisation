@@ -1,5 +1,5 @@
-
-public class Systeme {
+import BaseDeDonnees.BaseDeDonnees;
+public class Systeme implements SystemeInterface {
 	private BaseDeDonnees bdd;
 	private ServeurMail servMail;
 

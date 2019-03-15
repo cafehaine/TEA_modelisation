@@ -29,10 +29,10 @@ javac -cp "../SystemeInterface.jar:../BaseDeDonnees.jar:../Objects.jar:." *.java
 cd ..
 jar cvf ServeurMail.jar ServeurMail/*.class
 
-#echo "COMPILATION SYSTEME"
-#cd Systeme
-#javac -cp "../SystemeInterface.jar:../Objects.jar:." *.java
-#cd ..
-#jar cvf Systeme.jar Systeme/*.class
+echo "COMPILATION SYSTEME"
+cd Systeme
+javac -cp "../SystemeInterface.jar:../BaseDeDonnees.jar:../ServeurMail.jar:../Objects.jar:." *.java
+cd ..
+jar cvf Systeme.jar Systeme/*.class
 
 

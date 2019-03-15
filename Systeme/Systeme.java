@@ -1,4 +1,10 @@
+package Systeme;
+
 import BaseDeDonnees.BaseDeDonnees;
+import ServeurMail.ServeurMail;
+import SystemeInterface.SystemeInterface;
+import Objects.RendezVous;
+
 public class Systeme implements SystemeInterface {
 	private BaseDeDonnees bdd;
 	private ServeurMail servMail;
@@ -10,7 +16,7 @@ public class Systeme implements SystemeInterface {
 	
 	public void creerRendezVous(RendezVous rdv) {
 		int idRdv = bdd.rendezVous.creerRendezVous(rdv);
-		for (Integer user : rdv.getParticipants()) {
+		for (Integer user : rdv.getLstparticipant()) {
 			boolean dispo = bdd.utilisateur.utilisateurDisponnible(user, idRdv);
 			if (dispo) {
 				servMail.demanderConfirm(user, idRdv);

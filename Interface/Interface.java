@@ -65,14 +65,14 @@ public class Interface {
 	public static int identification() {
 		int num = -1;
 		try {
-			System.out.println("Bonjour, quel est votre numéro d'utilisateur ? ");
+			System.out.println("Bonjour, quel est votre numéro d'utilisateur ? (1/2/3) ");
 			Scanner sc = new Scanner(System.in);
 			num = sc.nextInt();
 		} catch (Exception e) {
 			System.out.println("un numéro est demandé");
 		}
 
-		return num;
+		return num-1;
 	}
 
 	public static ArrayList<Agenda> idToAgenda(ArrayList<Integer> mesAgendas){

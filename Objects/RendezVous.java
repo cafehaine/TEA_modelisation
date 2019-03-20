@@ -73,15 +73,7 @@ public class RendezVous {
 	}
 	
 	public String toString() {
-		String ch = "Rdv : "+this.titre+" date : "+this.date+" durée : "+this.duree;
-		ch += "\nParticipant :";
-		for (int i=0;i<this.lstParticipant.size();i++) {
-			ch += "\n\t- "+this.lstParticipant.get(i);
-		}
-		ch += "\nConfirmé :";
-		for (int i=0;i<this.lstConfirmer.size();i++) {
-			ch += "\n\t- "+this.lstConfirmer.get(i);
-		}
+		String ch = "Rdv : "+this.titre+" date (mois) : "+this.date.get(Calendar.LONG_FORMAT)+" durée : "+this.duree;
 		return ch;
 	}
 	

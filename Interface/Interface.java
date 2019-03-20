@@ -3,6 +3,7 @@ package Interface;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
+import java.util.Locale;
 
 import Objects.Agenda;
 import Objects.RendezVous;
@@ -57,9 +58,18 @@ public class Interface {
 	public static void creerRendezVous() {
 		Calendar date = Calendar.getInstance();
 		date.set(2019,03,15, 16, 20);
-		RendezVous rdv = new RendezVous(date,"rendezVous 1",1.5);
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.US);
+		System.out.println("Nom du rendez-vous :");
+		String label = sc.next();
+		System.out.println("Durée du rendez-vous : (en heure : 30 min = 0.5 -> utiliser le point)");
+		double duree = sc.nextDouble();
+		System.out.println("Date par default à : Aujourd'hui");
+		
+		RendezVous rdv = new RendezVous(date,label,duree);
 
 		system.creerRendezVous(rdv);
+		System.out.println("Rendez-vous créer : "+ rdv);
 	}
 
 	public static int identification() {
@@ -89,7 +99,7 @@ public class Interface {
 		System.out.println("Vos Agendas :");
 
 		for (int i=0;i<mesAgendas.size();i++) {
-			System.out.println((i+1)+" - "mesAgendas.get(i).getLabel());
+			System.out.println((i+1)+" - " + mesAgendas.get(i).getLabel());
 		}
 		if (mesAgendas.size()==0) {
 			System.out.println("Vous n'avez pas d'agenda");
@@ -101,12 +111,26 @@ public class Interface {
 				int idAgenda = sc.nextInt()-1;
 				System.out.println(mesAgendas.get(idAgenda));
 				
-				for (int i = 0; i < mesAgendas.get(idAgenda).getLstRdv().size() ; i++) {
-					ch+="\n\t- " + mesAgendas.get(idAgenda).getLstRdv().get(i);
+				if (mesAgendas.get(idAgenda).getLstRdv().size() > 0){
+					ArrayList<Integer> lstRdv = mesAgendas.get(idAgenda).getLstRdv();
+					for (int i = 0; i < lstRdv.size() ; i++) {
+						System.out.println("\t- " + bdd.rendezVous.getRdv(lstRdv.get(i)));
+						
+						System.out.println("Participant non confirmé:");
+						
+						for (int j=0;j<bdd.rendezVous.getRdv(lstRdv.get(i)).getLstparticipant().size();j++) {
+							System.out.println("\t- "+bdd.utilisateur.getUser(bdd.rendezVous.getRdv(lstRdv.get(i)).getLstparticipant().get(j)));
+							
+							//bdd.rendezVous.getRdv(lstRdv.get(i)).getLstparticipant().get(j)
+						}
+						System.out.println("Confirmé :");
+						for (int j=0;j<bdd.rendezVous.getRdv(lstRdv.get(i)).getLstConfirmer().size();j++) {
+							System.out.println("\t- "+bdd.utilisateur.getUser(bdd.rendezVous.getRdv(lstRdv.get(i)).getLstConfirmer().get(j)));
+						}
+					}
 				}
-				
 			} catch (Exception e) {
-				System.out.println("un numéro est demandé");
+				e.printStackTrace();
 			}
 		}
 		

@@ -15,14 +15,14 @@ public class TableRendezVous {
 		Calendar date = Calendar.getInstance();
 		date.set(2019,03,15, 16, 20);
 		RendezVous rdv = new RendezVous(date,"Réunion",1.5);
-		rdv.addParticipant(1);
 		rdv.addParticipant(2);
-		rdv.addConfirmer(0);
+		rdv.addParticipant(3);
+		rdv.addConfirmer(1);
 		
 		date = Calendar.getInstance();
 		date.set(2019,04,15, 14, 20);
 		RendezVous rdv2 = new RendezVous(date,"Dentiste",0.5);
-		rdv2.addConfirmer(0);
+		rdv2.addConfirmer(1);
 		
 		tableRendezVous.add(rdv);
 		tableRendezVous.add(rdv2);

@@ -50,9 +50,6 @@ public class Agenda {
 			ch += "\nVous n'avez pas de rendez-vous." ;
 		} else {
 			ch += "\nMes Rendez-vous :";
-			for (int i = 0; i < this.lstRdv.size(); i++) {
-				ch+="\n\t- " + this.lstRdv.get(i);
-			}
 		}
 		return ch;
 	}

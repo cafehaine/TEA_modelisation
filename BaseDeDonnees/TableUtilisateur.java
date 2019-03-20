@@ -22,7 +22,7 @@ public class TableUtilisateur {
 		
 	}
 	
-	private Utilisateur getUser(int user) {
+	public Utilisateur getUser(int user) {
 		int i=0;
 		while (i < tableUtilisateur.size() && tableUtilisateur.get(i).getId() != user)
 			i++;

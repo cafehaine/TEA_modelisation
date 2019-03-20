@@ -65,7 +65,7 @@ public class Interface {
 		System.out.println("Durée du rendez-vous : (en heure : 30 min = 0.5 -> utiliser le point)");
 		double duree = sc.nextDouble();
 		System.out.println("Date par default à : Aujourd'hui");
-		
+
 		RendezVous rdv = new RendezVous(date,label,duree);
 
 		system.creerRendezVous(rdv);
@@ -104,28 +104,28 @@ public class Interface {
 		if (mesAgendas.size()==0) {
 			System.out.println("Vous n'avez pas d'agenda");
 		}
-		else {	
+		else {
 			System.out.println("Quel Agenda voulez-vous voir ?");
 			try {
 				Scanner sc = new Scanner(System.in);
 				int idAgenda = sc.nextInt()-1;
 				System.out.println(mesAgendas.get(idAgenda));
-				
+
 				if (mesAgendas.get(idAgenda).getLstRdv().size() > 0){
 					ArrayList<Integer> lstRdv = mesAgendas.get(idAgenda).getLstRdv();
 					for (int i = 0; i < lstRdv.size() ; i++) {
-						System.out.println("\t- " + bdd.rendezVous.getRdv(lstRdv.get(i)));
-						
+						RendezVous rdv = bdd.rendezVous.getRdv(lstRdv.get(i));
+						System.out.println("\t- " + rdv);
+
 						System.out.println("Participant non confirmé:");
-						
-						for (int j=0;j<bdd.rendezVous.getRdv(lstRdv.get(i)).getLstparticipant().size();j++) {
-							System.out.println("\t- "+bdd.utilisateur.getUser(bdd.rendezVous.getRdv(lstRdv.get(i)).getLstparticipant().get(j)));
-							
-							//bdd.rendezVous.getRdv(lstRdv.get(i)).getLstparticipant().get(j)
+
+						for (Integer uid : rdv.getLstparticipant()) {
+							System.out.println("\t- "+bdd.utilisateur.getUser(uid));
 						}
+
 						System.out.println("Confirmé :");
-						for (int j=0;j<bdd.rendezVous.getRdv(lstRdv.get(i)).getLstConfirmer().size();j++) {
-							System.out.println("\t- "+bdd.utilisateur.getUser(bdd.rendezVous.getRdv(lstRdv.get(i)).getLstConfirmer().get(j)));
+						for (Integer uid : rdv.getLstConfirmer()) {
+							System.out.println("\t- "+bdd.utilisateur.getUser(uid));
 						}
 					}
 				}
@@ -133,8 +133,6 @@ public class Interface {
 				e.printStackTrace();
 			}
 		}
-		
-
 
 	}
 }

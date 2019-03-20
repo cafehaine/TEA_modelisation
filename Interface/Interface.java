@@ -47,7 +47,7 @@ public class Interface {
 		System.out.println("1 - Ajouter Rendez Vous");
 		System.out.println("2 - Voir un Agenda");
 		System.out.println("3 - Quitter");
-		while (choix != 1 || choix != 2 || choix !=3) {
+		while (choix != 1 && choix != 2 && choix !=3) {
 			Scanner sc = new Scanner(System.in);
 			choix = sc.nextInt();
 		}

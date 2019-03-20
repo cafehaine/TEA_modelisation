@@ -7,13 +7,13 @@ public class Agenda {
 
 	private int id;
 	private String label;
-	private ArrayList<RendezVous> lstRdv;
+	private ArrayList<Integer> lstRdv;
 
 	public Agenda(String label) {
 		super();
 		this.id = ++nbId;
 		this.label = label;
-		this.lstRdv = new ArrayList<RendezVous>();
+		this.lstRdv = new ArrayList<Integer>();
 	}
 
 	public int getId() {
@@ -32,24 +32,29 @@ public class Agenda {
 		this.label = label;
 	}
 
-	public ArrayList<RendezVous> getLstRdv() {
+	public ArrayList<Integer> getLstRdv() {
 		return lstRdv;
 	}
 
-	public void setLstRdv(ArrayList<RendezVous> lstRdv) {
+	public void setLstRdv(ArrayList<Integer> lstRdv) {
 		this.lstRdv = lstRdv;
+	}
+	
+	public void addRendezVous(int rdv) {
+		this.lstRdv.add(rdv);
 	}
 
 	public String toString() {
-		System.out.println("Agenda " + this.id);
-		if (this.lstRsv.size() == 0) {
-			System.out.println("Vous n avez pas de rdv");
+		String ch = "Agenda " + this.id;
+		if (this.lstRdv.size() == 0) {
+			ch += "\nVous n'avez pas de rendez-vous." ;
 		} else {
-			System.out.println("Mes Rendez-vous :");
+			ch += "\nMes Rendez-vous :";
 			for (int i = 0; i < this.lstRdv.size(); i++) {
-				System.out.println("- " + this.lstRdv.get(i));
+				ch+="\n\t- " + this.lstRdv.get(i);
 			}
 		}
+		return ch;
 	}
 
 }

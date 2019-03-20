@@ -21,20 +21,7 @@ public class RendezVous {
 		this.duree = duree;
 		this.lstParticipant = new ArrayList<Integer>();
 		this.lstConfirmer = new ArrayList<Integer>();
-		
-		Calendar date = Calendar.getInstance();
-		date.set(2019,03,15, 16, 20);
-		RendezVous rdv = new RendezVous(date,"Réunion",1.5);
-		rdv.lstParticipant.add(1);
-		rdv.lstParticipant.add(2);
-		rdv.lstConfimer.add(0);
-		
-		Calendar date = Calendar.getInstance();
-		date.set(2019,04,15, 14, 20);
-		RendezVous rdv2 = new RendezVous(date,"Dentiste",0.5);
-		rdv2.lstConfimer.add(0);
-		
-		
+				
 	}
 
 	public int getId() {
@@ -86,15 +73,16 @@ public class RendezVous {
 	}
 	
 	public String toString() {
-		System.out.println("Rdv : "+this.titre+" date : "+this.date+" durée : "+this.duree);
-		System.out.println("Participant :");
+		String ch = "Rdv : "+this.titre+" date : "+this.date+" durée : "+this.duree;
+		ch += "\nParticipant :";
 		for (int i=0;i<this.lstParticipant.size();i++) {
-			System.out.println("- "+this.lstParticipant.get(i));
+			ch += "\n\t- "+this.lstParticipant.get(i);
 		}
-		System.out.println("Confirmé :");
+		ch += "\nConfirmé :";
 		for (int i=0;i<this.lstConfirmer.size();i++) {
-			System.out.println("- "+this.lstConfirmer.get(i));
+			ch += "\n\t- "+this.lstConfirmer.get(i);
 		}
+		return ch;
 	}
 	
 }

@@ -10,11 +10,11 @@ public class TableAgenda {
 	public TableAgenda() {
 		this.tableAgenda = new ArrayList<Agenda>();
 		Agenda trav = new Agenda("Travail");
-		trav.add(0);
+		trav.getLstRdv().add(0);
 		
 		this.tableAgenda.add(trav);
 		Agenda perso = new Agenda("Perso");
-		perso.add(1);
+		perso.getLstRdv().add(1);
 		this.tableAgenda.add(perso);
 		this.tableAgenda.add(trav);
 	}
@@ -24,6 +24,6 @@ public class TableAgenda {
 	}
 	
 	public void ajouterRendezVous(int agenda, int rdv) {
-		this.tableAgenda.get(agenda).addRendezVous(TableRendezVous.getRdv(rdv));
+		this.tableAgenda.get(agenda).addRendezVous(rdv);
 	}
 }

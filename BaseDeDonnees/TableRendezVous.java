@@ -3,6 +3,7 @@ package BaseDeDonnees;
 import Objects.RendezVous;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class TableRendezVous {
 	private static ArrayList<RendezVous> tableRendezVous;
@@ -10,6 +11,21 @@ public class TableRendezVous {
 	public TableRendezVous() {
 		if (tableRendezVous == null)
 			tableRendezVous = new ArrayList<RendezVous>();
+		
+		Calendar date = Calendar.getInstance();
+		date.set(2019,03,15, 16, 20);
+		RendezVous rdv = new RendezVous(date,"Réunion",1.5);
+		rdv.addParticipant(1);
+		rdv.addParticipant(2);
+		rdv.addConfirmer(0);
+		
+		date = Calendar.getInstance();
+		date.set(2019,04,15, 14, 20);
+		RendezVous rdv2 = new RendezVous(date,"Dentiste",0.5);
+		rdv2.addConfirmer(0);
+		
+		tableRendezVous.add(rdv);
+		tableRendezVous.add(rdv2);
 	}
 	
 	public static RendezVous getRdv(int rdv) {

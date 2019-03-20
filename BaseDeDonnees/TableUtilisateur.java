@@ -1,6 +1,7 @@
 package BaseDeDonnees;
 
 import Objects.Utilisateur;
+import Objects.RendezVous;
 
 import java.util.ArrayList;
 

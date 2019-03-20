@@ -72,7 +72,7 @@ public class Interface {
 			System.out.println("un numéro est demandé");
 		}
 
-		return num-1;
+		return num;
 	}
 
 	public static ArrayList<Agenda> idToAgenda(ArrayList<Integer> mesAgendas){
@@ -89,17 +89,27 @@ public class Interface {
 		System.out.println("Vos Agendas :");
 
 		for (int i=0;i<mesAgendas.size();i++) {
-			System.out.println(mesAgendas.get(i).getLabel());
+			System.out.println((i+1)+" - "mesAgendas.get(i).getLabel());
 		}
-
-		System.out.println("Quel Agenda voulez-vous voir ?");
-		try {
-			Scanner sc = new Scanner(System.in);
-			int idAgenda = sc.nextInt();
-			System.out.println(mesAgendas.get(idAgenda));
-		} catch (Exception e) {
-			System.out.println("un numéro est demandé");
+		if (mesAgendas.size()==0) {
+			System.out.println("Vous n'avez pas d'agenda");
 		}
+		else {	
+			System.out.println("Quel Agenda voulez-vous voir ?");
+			try {
+				Scanner sc = new Scanner(System.in);
+				int idAgenda = sc.nextInt()-1;
+				System.out.println(mesAgendas.get(idAgenda));
+				
+				for (int i = 0; i < mesAgendas.get(idAgenda).getLstRdv().size() ; i++) {
+					ch+="\n\t- " + mesAgendas.get(idAgenda).getLstRdv().get(i);
+				}
+				
+			} catch (Exception e) {
+				System.out.println("un numéro est demandé");
+			}
+		}
+		
 
 
 	}

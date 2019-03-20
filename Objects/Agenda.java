@@ -45,7 +45,7 @@ public class Agenda {
 	}
 
 	public String toString() {
-		String ch = "Agenda " + this.id;
+		String ch = "Agenda " + this.label;
 		if (this.lstRdv.size() == 0) {
 			ch += "\nVous n'avez pas de rendez-vous." ;
 		} else {

@@ -59,5 +59,9 @@ public class Utilisateur {
 	}
 
 	
+	public String toString() {
+		System.out.println(this.Prenom+" "+this.nom+" "+this.email);
+	}
+	
 	
 }

@@ -9,6 +9,14 @@ public class TableAgenda {
 	
 	public TableAgenda() {
 		this.tableAgenda = new ArrayList<Agenda>();
+		Agenda trav = new Agenda("Travail");
+		trav.add(0);
+		
+		this.tableAgenda.add(trav);
+		Agenda perso = new Agenda("Perso");
+		perso.add(1);
+		this.tableAgenda.add(perso);
+		this.tableAgenda.add(trav);
 	}
 	
 	public Agenda getAgenda(int agenda) {

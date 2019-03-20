@@ -9,6 +9,12 @@ public class TableUtilisateur {
 	
 	public TableUtilisateur() {
 		tableUtilisateur = new ArrayList();
+		Utilisateur u1 = new Utilisateur("Jean","Dupuy","Jean.dupuy@gmail.com");
+		Utilisateur u2 = new Utilisateur("Jaques","Dupont","Jaques.dupont@gmail.com");
+		Utilisateur u3 = new Utilisateur("Claire","Beauchamps","clair.beauchamps@gmail.com");
+		tableUtilisateur.add(u1);
+		tableUtilisateur.add(u2);
+		tableUtilisateur.add(u3);
 	}
 	
 	private Utilisateur getUser(int user) {

@@ -2,14 +2,13 @@ package Objects;
 
 import java.util.ArrayList;
 
-
 public class Agenda {
 	private static int nbId = 0;
-	
+
 	private int id;
 	private String label;
 	private ArrayList<RendezVous> lstRdv;
-	
+
 	public Agenda(String label) {
 		super();
 		this.id = ++nbId;
@@ -40,7 +39,17 @@ public class Agenda {
 	public void setLstRdv(ArrayList<RendezVous> lstRdv) {
 		this.lstRdv = lstRdv;
 	}
-	
-	
-	
+
+	public String toString() {
+		System.out.println("Agenda " + this.id);
+		if (this.lstRsv.size() == 0) {
+			System.out.println("Vous n avez pas de rdv");
+		} else {
+			System.out.println("Mes Rendez-vous :");
+			for (int i = 0; i < this.lstRdv.size(); i++) {
+				System.out.println("- " + this.lstRdv.get(i));
+			}
+		}
+	}
+
 }

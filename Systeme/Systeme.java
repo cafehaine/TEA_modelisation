@@ -15,16 +15,22 @@ public class Systeme implements SystemeInterface {
 	}
 	
 	public void creerRendezVous(RendezVous rdv) {
-		int idRdv = bdd.rendezVous.creerRendezVous(rdv);
+		bdd.rendezVous.creerRendezVous(rdv);
 		for (Integer user : rdv.getLstparticipant()) {
-			boolean dispo = bdd.utilisateur.utilisateurDisponnible(user, idRdv);
+			boolean dispo = bdd.utilisateur.utilisateurDisponnible(user, rdv);
 			if (dispo) {
-				servMail.demanderConfirm(user, idRdv);
+				servMail.demanderConfirm(user, rdv.getId());
 			}
 		}
 	}
 	
-	public void retourConfirm(int utilisateur, int rdv, boolean accepte, int agenda) {
-		;
+	@Override
+	/**
+	 * Ici je pense l'utilisateur dispensable, Johan
+	 */
+	public void retourConfirm(int user, int rdv, boolean accepte, int agenda) {
+		if (accepte) {
+			bdd.agenda.ajouterRendezVous(agenda, rdv);
+		}
 	}
 }

@@ -2,21 +2,20 @@ package BaseDeDonnees;
 
 import Objects.Agenda;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class TableAgenda {
+	private ArrayList<Agenda> tableAgenda;
+	
 	public TableAgenda() {
-		//TODO
-		;
+		this.tableAgenda = new ArrayList<Agenda>();
 	}
 	
 	public Agenda getAgenda(int agenda) {
-		//TODO
-		return null;
+		return this.tableAgenda.get(agenda);
 	}
 	
 	public void ajouterRendezVous(int agenda, int rdv) {
-		//TODO
-		;
+		this.tableAgenda.get(agenda).addRendezVous(TableRendezVous.getRdv(rdv));
 	}
 }
